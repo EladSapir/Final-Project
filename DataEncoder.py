@@ -50,6 +50,10 @@ def decode_dataset(encoded_data, encoders):
 
 # Example usage
 encoded_data, encoders = encode_dataset('german_credit_data.csv')
+dff = pd.DataFrame(encoded_data)
+
+dff.to_csv('Encoded.csv', index=False)
+
 print(encoded_data)
 # To decode, you can use
 # decoded_data = decode_dataset(encoded_data, encoders)
