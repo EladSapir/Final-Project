@@ -64,11 +64,11 @@ def user_choice_for_column(column, column_name):
             return 'most_frequent'
 
 
-def impute_csv_file(file_path, missing_values):
+def impute_csv_file(df):
     """
     Impute missing values in a CSV file based on user choices.
     """
-    df = pd.read_csv(file_path, na_values=missing_values)
+    # df = pd.read_csv(file_path, na_values=missing_values)
 
     for column in df.columns:
         strategy = user_choice_for_column(df[column], column)
@@ -82,11 +82,11 @@ def impute_csv_file(file_path, missing_values):
 
 
 # Example usage
-file_path = input("Enter the path to your CSV file: ")
-missing_values = input("Enter the representation of missing values in your CSV (e.g., 'NA', empty space): ")
-imputed_df = impute_csv_file(file_path, missing_values)
+# file_path = input("Enter the path to your CSV file: ")
+# missing_values = input("Enter the representation of missing values in your CSV (e.g., 'NA', empty space): ")
+# imputed_df = impute_csv_file(file_path, missing_values)
 
 # Save the imputed dataframe to a new CSV file
-output_file_path = file_path[:-4] + '_imputed.csv'  # Change this if you want a different naming convention
-imputed_df.to_csv(output_file_path, index=False)
-print(f"Imputed DataFrame saved to {output_file_path}")
+# output_file_path = file_path[:-4] + '_imputed.csv'  # Change this if you want a different naming convention
+# imputed_df.to_csv(output_file_path, index=False)
+# print(f"Imputed DataFrame saved to {output_file_path}")

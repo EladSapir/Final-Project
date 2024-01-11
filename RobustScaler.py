@@ -1,9 +1,9 @@
 import pandas as pd
 from sklearn.preprocessing import RobustScaler
 
-def scale_csv(input_csv_path):
+def scale_csv(df):
     # Read the CSV file
-    df = pd.read_csv(input_csv_path)
+    # df = pd.read_csv(input_csv_path)
 
     # Initialize the RobustScaler
     scaler = RobustScaler()
