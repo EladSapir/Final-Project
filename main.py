@@ -1,9 +1,7 @@
-from SVC import *
-
+from EladTomerSolalSVC import *
 
 def main():
-    print("hey")
-
+    improveOurPreviousProject()
 
 if __name__== '__main__':
     main()
