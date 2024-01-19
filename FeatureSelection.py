@@ -1,9 +1,9 @@
 import pandas as pd
 from sklearn.feature_selection import SelectKBest, f_classif
 
-def feature_selection(csv_path, k=10):
+def feature_selection(data, k=10):
     # Load the CSV file
-    data = pd.read_csv(csv_path)
+    # data = pd.read_csv(csv_path)
 
     # Assuming the last column is the target variable
     X = data.iloc[:, :-1]
@@ -21,12 +21,12 @@ def feature_selection(csv_path, k=10):
     selected_data = pd.DataFrame(X_new, columns=selected_columns)
     selected_data['target'] = y
 
-    # Save the new DataFrame to a CSV file
-    selected_data.to_csv('selected_features.csv', index=False)
+    # # Save the new DataFrame to a CSV file
+    # selected_data.to_csv('selected_features.csv', index=False)
 
-    return 'selected_features.csv'
+    return selected_data
 
 # Example usage
-csv_path = 'Encoded.csv'
-result_csv = feature_selection(csv_path, k=3)
-print(f"Feature selected data saved to: {result_csv}")
+# csv_path = pd.read_csv('db.csv')
+# result_csv = feature_selection(csv_path, k=3)
+# print(f"Feature selected data saved to: {result_csv}")

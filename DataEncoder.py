@@ -7,9 +7,9 @@ def is_numerical(series):
     return series.dtype.kind in 'biufc'
 
 
-def encode_dataset(csv_file):
+def encode_dataset(data):
     # Load dataset
-    data = pd.read_csv(csv_file)
+    # data = pd.read_csv(csv_file)
 
     # Dictionary to hold LabelEncoders for each categorical column
     encoders = {}
@@ -49,11 +49,11 @@ def decode_dataset(encoded_data, encoders):
 
 
 # Example usage
-encoded_data, encoders = encode_dataset('german_credit_data.csv')
-dff = pd.DataFrame(encoded_data)
-
-dff.to_csv('Encoded.csv', index=False)
-
-print(encoded_data)
+# encoded_data, encoders = encode_dataset('german_credit_data.csv')
+# dff = pd.DataFrame(encoded_data)
+#
+# dff.to_csv('Encoded.csv', index=False)
+#
+# print(encoded_data)
 # To decode, you can use
 # decoded_data = decode_dataset(encoded_data, encoders)

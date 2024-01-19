@@ -28,14 +28,14 @@ def inverse_scale_csv(scaled_df, scaler):
     return original_df
 
 # Example usage
-input_csv = 'path/to/your/input.csv'  # Path to your input CSV file
-
-# Scale the CSV data
-scaled_df, scaler = scale_csv(input_csv)
-
-# Perform your analysis or processing with scaled_df here...
-
-# If needed, inverse scale to get the original data
-original_df = inverse_scale_csv(scaled_df, scaler)
+# input_csv = 'path/to/your/input.csv'  # Path to your input CSV file
+#
+# # Scale the CSV data
+# scaled_df, scaler = scale_csv(input_csv)
+#
+# # Perform your analysis or processing with scaled_df here...
+#
+# # If needed, inverse scale to get the original data
+# original_df = inverse_scale_csv(scaled_df, scaler)
 
 # Now, scaled_df and original_df can be used as needed, or saved to CSVs

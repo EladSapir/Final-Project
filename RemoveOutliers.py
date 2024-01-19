@@ -14,12 +14,12 @@ def detect_outliers_with_isolation_forest(df):
     return df
 
 
-def process_csv(input_csv, output_csv):
+def remove_outliers(df):
     """
     Process the CSV file to detect and remove outliers.
     """
     # Read the CSV file
-    df = pd.read_csv(input_csv)
+    # df = pd.read_csv(input_csv)
 
     # Assuming all columns are relevant for outlier detection
     numeric_cols = df.select_dtypes(include='number').columns
@@ -29,7 +29,9 @@ def process_csv(input_csv, output_csv):
     df_no_outliers = df_outliers_detected[df_outliers_detected['outlier'] != -1]
 
     # Write the processed data to a new CSV file
-    df_no_outliers.to_csv(output_csv, index=False)
+    # df_no_outliers.to_csv(output_csv, index=False)
+    return df_no_outliers
 
 # Example usage
-process_csv('Encoded.csv', 'RemovedOutliers.csv')
+# df = pd.read_csv('Encoded.csv')
+# remove_outliers(df)
