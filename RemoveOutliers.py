@@ -6,7 +6,7 @@ def detect_outliers_with_isolation_forest(df):
     """
     Detect outliers using the Isolation Forest method.
     """
-    iso_forest = IsolationForest(contamination=0.05)  # contamination is the expected proportion of outliers
+    iso_forest = IsolationForest(contamination=0.01)  # contamination is the expected proportion of outliers 1%
     preds = iso_forest.fit_predict(df)
 
     # Mark outliers with -1
