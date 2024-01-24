@@ -2,5 +2,5 @@ pandas
 numpy
 scikit-learn
 Cython
-cv2
+opencv-python
 tqdm
