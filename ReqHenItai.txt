@@ -1,0 +1,6 @@
+pandas
+numpy
+scikit-learn
+Cython
+cv2
+tqdm
