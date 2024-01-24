@@ -75,4 +75,3 @@ def improveOurPreviousProject():
     print("Best Parameters:", best_params)
     print(classification_report(y_test, y_pred))
 
-improveOurPreviousProject()
