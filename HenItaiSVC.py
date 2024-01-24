@@ -33,8 +33,8 @@ class_names_label = {class_name: i for i, class_name in enumerate(class_names)}
 IMAGE_SIZE = (150, 150)
 
 def load_data():
-    path1 = os.path.join("C:\\", "Users", "ASUS", "Downloads", "AAA", "seg_train", "seg_train")
-    path2 = os.path.join("C:\\", "Users", "ASUS", "Downloads", "AAA", "seg_test", "seg_test")
+    path1 = os.path.join("seg_train")
+    path2 = os.path.join("seg_test")
     datasets = [path1, path2]
     images = []
     labels = []
