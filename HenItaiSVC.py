@@ -3,28 +3,24 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report
 import os
-
-def get_svm_param_grid(granularity):
-    # Define basic ranges
-    C_range = [2 ** i for i in range(-2, 2, 1)]
-    gamma_range = [2 ** i for i in range(-2, 2, 1)]
-
-    # Adjust ranges based on granularity
-    C_options = C_range[::granularity]
-    gamma_options = gamma_range[::granularity]
-    kernel_options = ['linear', 'rbf', 'poly', 'sigmoid']
-
-    return {
-        'C': C_options,
-        'kernel': kernel_options,
-        'gamma': gamma_options,
-        'degree': [2, 3, 4, 5]  # Degrees for polynomial kernel
-    }
 import numpy as np
 import os
 import cv2
 from tqdm import tqdm
 from sklearn.utils import shuffle
+
+C_options = [2 ** i for i in range(-2, 2, 1)]
+gamma_options = [2 ** i for i in range(-2, 2, 1)]
+
+# Adjust ranges based on granularity
+kernel_options = ['linear', 'rbf']
+
+param_grid = {
+    'C': C_options,
+    'kernel': kernel_options,
+    'gamma': gamma_options}
+
+
 
 class_names = ['mountain', 'street', 'glacier']
 class_names_label = {class_name: i for i, class_name in enumerate(class_names)}
@@ -74,15 +70,11 @@ X, y = data['data'], data['target']
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# User input for granularity
-granularity = int(input("Enter the granularity level for SVM (1 for highest granularity, higher numbers for lower granularity): "))
-
 # Get parameter grid based on user-defined granularity
-param_grid = get_svm_param_grid(granularity)
 print("Parameter Grid:", param_grid)
 
 # Determine CV folds
-cv_folds = 10 if X_train.shape[0] < 500 else 5
+cv_folds = 4 if X_train.shape[0] < 500 else 2
 print("CV Folds:", cv_folds)
 
 # Initialize the SVM classifier
