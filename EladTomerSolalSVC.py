@@ -6,22 +6,18 @@ from sklearn.svm import SVC
 from sklearn.metrics import classification_report
 
 def improveOurPreviousProject():
-    def get_svm_param_grid(granularity):
-        # Define basic ranges
-        C_range = [2**i for i in range(-5, 16, 1)]  # Powers of 2 ranging from 2^-5 to 2^15
-        gamma_range = [2**i for i in range(-15, 4, 1)]  # Powers of 2 ranging from 2^-15 to 2^3
+    C_options = [0.05,0.1,0.5,1,5,7.5,10,15,20]  # Powers of 2 ranging from 2^-5 to 2^15
+    gamma_options = [0.25,0.5,0.75,0.9,1,1.25,1.5,2,5]  # Powers of 2 ranging from 2^-15 to 2^3
 
-        # Adjust ranges based on granularity
-        C_options = C_range[::granularity]
-        gamma_options = gamma_range[::granularity]
-        kernel_options = ['linear', 'rbf', 'poly', 'sigmoid']
+    # Adjust ranges based on granularity
+    kernel_options = ['linear', 'rbf', 'poly', 'sigmoid']
 
-        return {
-            'C': C_options,
-            'kernel': kernel_options,
-            'gamma': gamma_options,
-            'degree': [2, 3, 4, 5]  # Degrees for polynomial kernel
-        }
+    param_grid = {
+        'C': C_options,
+        'kernel': kernel_options,
+        'gamma': gamma_options,
+        'degree': [2, 3, 4, 5]  # Degrees for polynomial kernel
+    }
 
     # Load a sample dataset
     df = pd.read_csv("Database.csv", index_col=0)
@@ -50,15 +46,13 @@ def improveOurPreviousProject():
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # User input for granularity
-    granularity = int(input("Enter the granularity level for SVM (1 for highest granularity, higher numbers for lower granularity): "))
+
 
     # Get parameter grid based on user-defined granularity
-    param_grid = get_svm_param_grid(granularity)
     print("Parameter Grid:", param_grid)
 
     # Determine CV folds
-    cv_folds = 10 if X_train.shape[0] < 500 else 5
+    cv_folds = 4 if X_train.shape[0] < 500 else 2
     print("CV Folds:", cv_folds)
 
     # Initialize the SVM classifier
@@ -80,3 +74,5 @@ def improveOurPreviousProject():
     best_params = grid_search.best_params_
     print("Best Parameters:", best_params)
     print(classification_report(y_test, y_pred))
+
+improveOurPreviousProject()

@@ -6,10 +6,8 @@ import os
 
 def get_svm_param_grid(granularity):
     # Define basic ranges
-    # C_range = [2**i for i in range(-5, 16, 1)]  # Powers of 2 ranging from 2^-5 to 2^15
-    # gamma_range = [2**i for i in range(-15, 4, 1)]  # Powers of 2 ranging from 2^-15 to 2^3
-    C_range = [2 ** i for i in range(-3, 4, 1)]  # Powers of 2 ranging from 2^-3 to 2^3
-    gamma_range = [2 ** i for i in range(-7, 0, 1)]  # Powers of 2 ranging from 2^-7 to 2^-1
+    C_range = [2 ** i for i in range(-2, 2, 1)]
+    gamma_range = [2 ** i for i in range(-2, 2, 1)]
 
     # Adjust ranges based on granularity
     C_options = C_range[::granularity]
