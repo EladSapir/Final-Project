@@ -1,15 +1,13 @@
 import numpy as np
 import os
-from sklearn.metrics import confusion_matrix, accuracy_score
-import seaborn as sn; sn.set(font_scale=1.4)
+from sklearn.metrics import confusion_matrix
 from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
 import cv2
-#import tensorflow as tf
 from tqdm import tqdm
 from sklearn import svm
 from sklearn.metrics import classification_report
-from sklearn.metrics import accuracy_score, hinge_loss
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 
 
