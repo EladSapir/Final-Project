@@ -4,3 +4,4 @@ scikit-learn
 Cython
 opencv-python
 tqdm
+matplotlib
