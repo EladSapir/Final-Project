@@ -6,8 +6,8 @@ from sklearn.svm import SVC
 from sklearn.metrics import classification_report
 
 def improveOurPreviousProject():
-    C_options = [0.05,0.1,0.5,1,5,7.5,10,15,20]  # Powers of 2 ranging from 2^-5 to 2^15
-    gamma_options = [0.25,0.5,0.75,0.9,1,1.25,1.5,2,5]  # Powers of 2 ranging from 2^-15 to 2^3
+    C_options = [0.5,1,5,7.5,10,15,20]  # Powers of 2 ranging from 2^-5 to 2^15
+    gamma_options = [0.5,0.75,0.9,1,1.25,1.5,2,5]  # Powers of 2 ranging from 2^-15 to 2^3
 
     # Adjust ranges based on granularity
     kernel_options = ['linear', 'rbf', 'poly', 'sigmoid']
@@ -51,15 +51,12 @@ def improveOurPreviousProject():
     # Get parameter grid based on user-defined granularity
     print("Parameter Grid:", param_grid)
 
-    # Determine CV folds
-    cv_folds = 4 if X_train.shape[0] < 500 else 2
-    print("CV Folds:", cv_folds)
 
     # Initialize the SVM classifier
     model = SVC(random_state=42)
 
     # Initialize GridSearchCV
-    grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=cv_folds, n_jobs=-1, verbose=2)
+    grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=2, n_jobs=-1, verbose=2)
 
     # Fit GridSearchCV
     grid_search.fit(X_train, y_train)
