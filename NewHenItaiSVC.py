@@ -107,7 +107,7 @@ test_images = test_images.reshape(-1, 150*150*3)
 
 
 # Define the parameter grid
-param_grid = {'C': [5,7,10],  # Example values, you can choose others
+param_grid = {'C': [10],  # Example values, you can choose others
               'kernel': ['rbf']}
 
 # Create a base model
@@ -115,7 +115,7 @@ svc = svm.SVC()
 
 # Instantiate the grid search model
 grid_search = GridSearchCV(estimator=svc, param_grid=param_grid,
-                           cv=3, n_jobs=-1, verbose=2)
+                           cv=2, n_jobs=-1, verbose=2)
 
 print("begin training with grid search")
 # Fit the grid search to the data
