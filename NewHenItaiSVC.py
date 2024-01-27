@@ -59,7 +59,7 @@ for C in C_values:
     for degree in degrees:
         print(f"Training SVM with C={C}, degree={degree}, kernel=poly")
 
-        clf = svm.SVC(C=C, kernel='poly', degree=degree, cache_size=2000)
+        clf = svm.SVC(C=C, kernel='poly', degree=degree)
         clf.fit(train_images, train_labels)
 
         predictions = clf.predict(test_images)
