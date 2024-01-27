@@ -107,7 +107,7 @@ test_images = test_images.reshape(-1, 150*150*3)
 
 
 # Define the parameter grid
-param_grid = {'C': [5],  # Example values, you can choose others
+param_grid = {'C': [5,7,10],  # Example values, you can choose others
               'kernel': ['rbf']}
 
 # Create a base model
