@@ -107,7 +107,7 @@ test_images = test_images.reshape(-1, 150*150*3)
 
 
 # Define the parameter grid
-param_grid = {'C': [3,5,7,9],'cache_size':[3000],'gamma':['auto','scale'], 'kernel': ['rbf']}
+param_grid = {'C': [3,5,7,9],'cache_size':[3000], 'kernel': ['rbf']}
 #param_grid = {'C': [1,5,8,10],'cache_size':[3000],'degree':[2,3], 'kernel': ['poly']}
 # Create a base model
 svc = svm.SVC()
