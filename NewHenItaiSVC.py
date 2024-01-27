@@ -52,7 +52,7 @@ train_images = train_images.reshape(-1, 150*150*3)
 test_images = test_images.reshape(-1, 150*150*3)
 
 # Parameters to iterate over
-C_values = [1, 5, 8, 10]
+C_values = [1, 5]
 degrees = [2, 3]
 
 for C in C_values:
