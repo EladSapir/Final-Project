@@ -3,20 +3,21 @@ import numpy as np
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.datasets import load_iris
 from sklearn.svm import SVC
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, accuracy_score
+
 
 def improveOurPreviousProject():
-    C_options = [0.5,1,5,7.5,10,15,20]  # Powers of 2 ranging from 2^-5 to 2^15
-    gamma_options = [0.5,0.75,0.9,1,1.25,1.5,2,5]  # Powers of 2 ranging from 2^-15 to 2^3
+    C_options = [1,2.5,5,10,15,20]  # Powers of 2 ranging from 2^-5 to 2^15
+    gamma_options = [0.5,0.75,1,2,3,5,10,20]  # Powers of 2 ranging from 2^-15 to 2^3
 
     # Adjust ranges based on granularity
-    kernel_options = ['linear', 'rbf', 'poly', 'sigmoid']
+    kernel_options = ['rbf']
 
     param_grid = {
         'C': C_options,
         'kernel': kernel_options,
         'gamma': gamma_options,
-        'degree': [2, 3, 4, 5]  # Degrees for polynomial kernel
+ #       'degree': [2, 3, 4, 5]  # Degrees for polynomial kernel
     }
 
     # Load a sample dataset
@@ -71,4 +72,6 @@ def improveOurPreviousProject():
     best_params = grid_search.best_params_
     print("Best Parameters:", best_params)
     print(classification_report(y_test, y_pred))
+    print("Accuracy:", accuracy_score(y_test, y_pred))
+
 
