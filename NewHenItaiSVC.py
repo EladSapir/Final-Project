@@ -9,6 +9,7 @@ from sklearn import svm
 from sklearn.metrics import classification_report
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
+import pandas as pd
 
 
 #class_names = ['mountain', 'street', 'glacier', 'buildings', 'sea', 'forest']
@@ -77,7 +78,6 @@ print ("Number of testing examples: {}".format(n_test))
 print ("Each image is of size: {}".format(IMAGE_SIZE))
 
 
-import pandas as pd
 
 _, train_counts = np.unique(train_labels, return_counts=True)
 _, test_counts = np.unique(test_labels, return_counts=True)
@@ -107,8 +107,8 @@ test_images = test_images.reshape(-1, 150*150*3)
 
 
 # Define the parameter grid
-param_grid = {'C': [10],'cache_size':[3000], 'kernel': ['rbf']}
-
+#param_grid = {'C': [1,3,5,7,8,10],'cache_size':[3000],'gamma':['auto','scale'], 'kernel': ['rbf']}
+param_grid = {'C': [1,5,8,10],'cache_size':[3000],'degree':['2','3'], 'kernel': ['poly']}
 # Create a base model
 svc = svm.SVC()
 
@@ -149,10 +149,3 @@ plt.legend()
 plt.show()
 
 CM = confusion_matrix(test_labels, predictions)
-ax = plt.axes()
-sn.heatmap(CM, annot=True,
-           annot_kws={"size": 10},
-           xticklabels=class_names,
-           yticklabels=class_names, ax = ax)
-ax.set_title('Confusion matrix')
-plt.show()

@@ -7,7 +7,7 @@ from sklearn.metrics import classification_report, accuracy_score
 
 
 def improveOurPreviousProject():
-    C_options = [1,2.5,5,10,15,20]  # Powers of 2 ranging from 2^-5 to 2^15
+    C_options = [0.005,1,2.5,15,20]  # Powers of 2 ranging from 2^-5 to 2^15
     gamma_options = [0.5,0.75,1,2,3,5,10,20]  # Powers of 2 ranging from 2^-15 to 2^3
 
     # Adjust ranges based on granularity
