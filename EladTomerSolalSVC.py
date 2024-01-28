@@ -7,7 +7,7 @@ from sklearn.metrics import classification_report, accuracy_score
 
 
 def improveOurPreviousProject():
-    C_options = [2.5, 10]  # Powers of 2 ranging from 2^-5 to 2^15
+    C_options = [1,2.5, 10]  # Powers of 2 ranging from 2^-5 to 2^15
     gamma_options = [ 1,5 ,10]  # Powers of 2 ranging from 2^-15 to 2^3
 
     # Adjust ranges based on granularity
@@ -17,7 +17,7 @@ def improveOurPreviousProject():
         'C': C_options,
         'kernel': kernel_options,
         'gamma': gamma_options,
-        'degree': [2, 3, 5]  # Degrees for polynomial kernel
+        'degree': [2, 3 ]  # Degrees for polynomial kernel
     }
 
     # Load a sample dataset
