@@ -52,7 +52,7 @@ train_images = train_images.reshape(-1, 150*150*3)
 test_images = test_images.reshape(-1, 150*150*3)
 
 # Parameters to iterate over
-clf = svm.SVC(C=10, kernel='poly', degree=3)
+clf = svm.SVC(C=10, kernel='poly', degree=3 ,cache_size=8000)
 clf.fit(train_images, train_labels)
 predictions = clf.predict(test_images)
 accuracy = accuracy_score(test_labels, predictions)
