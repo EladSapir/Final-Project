@@ -1,6 +1,8 @@
 import numpy as np
 import os
 import cv2
+from sklearn import svm
+from sklearn.metrics import accuracy_score
 from tqdm import tqdm
 from sklearn.utils import shuffle
 
