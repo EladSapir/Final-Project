@@ -12,7 +12,7 @@ class_names = ['mountain', 'street', 'glacier']
 class_names_label = {class_name: i for i, class_name in enumerate(class_names)}
 
 IMAGE_SIZE = (150, 150)
-BATCH_SIZE = 100  # You can adjust this based on your server's memory capacity
+BATCH_SIZE = 10  # Reduced batch size
 
 def process_images(dataset, folder, start, end):
     images = []
