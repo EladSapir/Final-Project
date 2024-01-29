@@ -43,7 +43,7 @@ def load_data():
                 dataset_images.extend(images)
                 dataset_labels.extend(labels)
 
-        dataset_images = np.array(dataset_images, dtype='float32') / 255.0
+        dataset_images = np.array(dataset_images, dtype='float16') / 255.0
         dataset_labels = np.array(dataset_labels, dtype='int32')
 
         output.append((dataset_images, dataset_labels))
