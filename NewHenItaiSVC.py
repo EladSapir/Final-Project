@@ -52,18 +52,8 @@ train_images = train_images.reshape(-1, 150*150*3)
 test_images = test_images.reshape(-1, 150*150*3)
 
 # Parameters to iterate over
-C_values = [1, 5]
-degrees = [2, 3]
+clf = svm.SVC(C=10, kernel='poly', degree=3)
+clf.fit(train_images, train_labels)
+predictions = clf.predict(test_images)
+accuracy = accuracy_score(test_labels, predictions)
 
-for C in C_values:
-    for degree in degrees:
-        print(f"Training SVM with C={C}, degree={degree}, kernel=poly")
-
-        clf = svm.SVC(C=C, kernel='poly', degree=degree)
-        clf.fit(train_images, train_labels)
-
-        predictions = clf.predict(test_images)
-        accuracy = accuracy_score(test_labels, predictions)
-        print(f"Accuracy with C={C}, degree={degree}, kernel=poly: {accuracy}")
-
-        print(classification_report(test_labels, predictions, target_names=class_names))
